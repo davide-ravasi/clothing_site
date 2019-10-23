@@ -40,8 +40,19 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return userRef;
 }
 
-firebase.initializeApp(config);  
+firebase.initializeApp(config);
 
+/*
+When a user signs up or signs in, that user becomes the current user of the Auth instance. 
+The instance persists the user's state, 
+so that refreshing the page (in a browser) or 
+restarting the application doesn't lose the user's information.
+When the user signs out, 
+the Auth instance stops keeping a reference to the user object 
+and no longer persists its state; there is no current user. 
+However, the user instance continues to be completely functional: 
+if you keep a reference to it, you can still access and update the user's data.
+*/
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
