@@ -9,7 +9,7 @@ import CartIcon from '../cart_icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import './header.styles.scss';
 
-const Header = ({ currentUser, toggleDropDown, toggleCartHidden }) => (
+const Header = ({ currentUser, toggleDropDown }) => (
     <div className='header'>
         <Link className='logo-container' to='/'>
             Logo
@@ -20,7 +20,6 @@ const Header = ({ currentUser, toggleDropDown, toggleCartHidden }) => (
             </Link>
             <Link className='option' to='/contact'>
                 CONTACT
-                {toggleDropDown ? "cacca" : "non cacca"}
             </Link>
             {
                 currentUser ?
@@ -30,7 +29,11 @@ const Header = ({ currentUser, toggleDropDown, toggleCartHidden }) => (
             }
             <CartIcon/>
         </div>
-        <CartDropdown toggleDropDown={toggleDropDown} />
+        { toggleDropDown ?  
+                null : 
+                <CartDropdown />
+
+        }
     </div>
 )
 
