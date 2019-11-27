@@ -16,6 +16,11 @@ export const selectCartItemsCount = createSelector(
             0)
 )
 
+export const selectCartHidden = createSelector(
+    [selectCart],
+    cart => cart.hidden
+)
+
 
 
 /* with createSelector we can  memoize the value of the slice of the state selected */
